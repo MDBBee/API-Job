@@ -3,14 +3,7 @@ const { StatusCodes } = require("http-status-codes");
 const bcrypt = require("bcryptjs");
 
 const register = async (req, res) => {
-  const { password, name, email } = req.body;
-
-  const salt = await bcrypt.genSalt(10);
-  const hashpassw = await bcrypt.hash(password, salt);
-
-  const temUser = { password: hashpassw, name, email };
-
-  const user = await User.create({ ...temUser });
+  const user = await User.create({ ...req.body });
 
   res.status(StatusCodes.CREATED).json({ user });
 };
