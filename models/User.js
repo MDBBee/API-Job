@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
     minLength: 3,
     maxLength: 50,
   },
-  emal: {
+  email: {
     type: String,
     required: [true, "Please provide an email."],
     match: [
@@ -21,7 +21,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a valid password!."],
     minLength: 6,
-    maxLength: 12,
   },
 });
 
